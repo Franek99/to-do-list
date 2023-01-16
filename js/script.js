@@ -56,14 +56,14 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li
+            <li class="list">
             <button type="submit" class=" list__button list__button--done js-done">
             ${task.done ? "✔" : ""}
             </button>
-            <span class="list_taskName${task.done ? "list__taskName--done" : ""}">
+            <span class="list__taskName ${task.done ? "list__taskName--done" :""}">
             ${task.content}
             </span>
-            <button type="submit" class="js-remove">usuń</button>
+            <button type="submit" class="list__button--remove js-remove">🗑</button>
                  </li>
              `;
         }
@@ -85,6 +85,8 @@
         }
 
         addNewTask(newTaskContent);
+
+        document.querySelector(".js-newTask").value = "";
     };
 
     const init = () => {
