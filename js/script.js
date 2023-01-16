@@ -29,25 +29,7 @@
         render();
     }
 
-    const render = () => {
-        let htmlString = "";
-
-        for (const task of tasks) {
-            htmlString += `
-            <li
-            <button type="submit" class=" list__button list__button--done js-done">
-            ${task.done ? "✔" : ""}
-            </button>
-            <span class="list_taskName${task.done ? "list__taskName--done" : ""}">
-            ${task.content}
-            </span>
-            <button type="submit" class="js-remove">usuń</button>
-                 </li>
-             `;
-        }
-
-        document.querySelector(".js-list").innerHTML = htmlString;
-
+    const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButton, index) => {
@@ -67,6 +49,28 @@
 
 
         });
+    }
+
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
+            <li
+            <button type="submit" class=" list__button list__button--done js-done">
+            ${task.done ? "✔" : ""}
+            </button>
+            <span class="list_taskName${task.done ? "list__taskName--done" : ""}">
+            ${task.content}
+            </span>
+            <button type="submit" class="js-remove">usuń</button>
+                 </li>
+             `;
+        }
+
+        document.querySelector(".js-list").innerHTML = htmlString;
+
+        bindEvents();
     };
 
 
