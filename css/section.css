@@ -1,0 +1,9 @@
+.section{
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.section__header{
+ border-bottom: solid 3px rgb(233, 233, 233) ;
+}
