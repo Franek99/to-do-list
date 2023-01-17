@@ -36,8 +36,6 @@
             removeButton.addEventListener("click", () => {
                 removeTask(index);
             });
-
-
         });
 
         const toggleDoneButtons = document.querySelectorAll(".js-done");
@@ -46,8 +44,6 @@
             toggleDoneButton.addEventListener("click", () => {
                 toggleTaskDone(index);
             });
-
-
         });
     }
 
@@ -60,7 +56,7 @@
             <button type="submit" class=" list__button list__button--done js-done">
             ${task.done ? "✔" : ""}
             </button>
-            <span class="list__taskName ${task.done ? "list__taskName--done" :""}">
+            <span class="list__taskName ${task.done ? "list__taskName--done" : ""}">
             ${task.content}
             </span>
             <button type="submit" class="list__button--remove js-remove">🗑</button>
