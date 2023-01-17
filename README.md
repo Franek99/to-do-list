@@ -1,4 +1,4 @@
-# # To-Do-List
+# To-Do-List
 
 ## Demo
 https://franek99.github.io/to-do-list/
