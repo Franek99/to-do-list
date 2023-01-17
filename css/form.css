@@ -12,4 +12,9 @@
 .form__addButton{
     background-color: teal;
     color: white;
+    cursor: pointer;
+}
+
+.form__addButton--done:active{
+    background-color: rgb(100, 233, 233);
 }
