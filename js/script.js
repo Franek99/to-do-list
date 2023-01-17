@@ -69,8 +69,6 @@
         bindEvents();
     };
 
-
-
     const onFormSubmit = (event) => {
         event.preventDefault();
 

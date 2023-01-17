@@ -5,7 +5,3 @@
     margin: auto;
     max-width: 1000px;
 }
-
-@media(max-width: 767px) {
-    .body {}
-}
