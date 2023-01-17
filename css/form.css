@@ -1,8 +1,8 @@
-.form{
+.form {
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-gap:20px;
+    grid-gap: 20px;
 }
 
 @media(max-width: 767px) {
@@ -11,16 +11,20 @@
     }
 }
 
-.form__paragraph{
+.form__paragraph {
     padding: 10px;
 }
 
-.form__addButton{
+.form__addButton {
     background-color: teal;
     color: white;
     cursor: pointer;
 }
 
-.form__addButton--done:active{
+.form__addButton--done:active {
     background-color: rgb(100, 233, 233);
+}
+
+.form__addButton--done:hover {
+    background-color: rgb(101, 226, 226);
 }
