@@ -1,31 +1,28 @@
 {
-    const tasks = [
-        {
-            content: "umyć zęby",
-            done: true,
-        },
-        {
-            content: "posprzątać dom",
-            done: false,
-        },
+    let tasks = [];
 
-    ];
+
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
+        tasks = [
+            ...tasks,
+            { content: newTaskContent },
+        ];
 
         render();
     };
 
     const removeTask = (index) => {
-        tasks.splice(index, 1);
+        tasks = [
+            ...tasks.splice(1,index),
+        ];
+
         render();
-    }
+    };
 
     const toggleTaskDone = (index) => {
-        tasks[index].done = !tasks[index].done;
+        tasks = tasks.map(tasks => tasks[index].done = !tasks[index].done);
+        
         render();
     }
 
@@ -47,25 +44,34 @@
         });
     }
 
-    const render = () => {
+    const renderTask = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
-            <li class="list">
-            <button type="submit" class=" list__button list__button--done js-done">
-            ${task.done ? "✔" : ""}
-            </button>
-            <span class="list__taskName ${task.done ? "list__taskName--done" : ""}">
-            ${task.content}
-            </span>
-            <button type="submit" class="list__button--remove js-remove">🗑</button>
-                 </li>
-             `;
+        <li class="list">
+        <button type="submit" class=" list__button list__button--done js-done">
+        ${task.done ? "✔" : ""}
+        </button>
+        <span class="list__taskName ${task.done ? "list__taskName--done" : ""}">
+        ${task.content}
+        </span>
+        <button type="submit" class="list__button--remove js-remove">🗑</button>
+             </li>
+         `;
         }
 
         document.querySelector(".js-list").innerHTML = htmlString;
+    };
 
+    const renderButtons = () => { };
+    const bindEventsButtons = () => { };
+
+    const render = () => {
+
+        renderTask();
+        renderButtons();
+        bindEventsButtons();
         bindEvents();
     };
 
