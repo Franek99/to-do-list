@@ -9,9 +9,11 @@
         render();
     };
 
-    const markAllDoneTasks = () => [
-        tasks.map(task => task.done),
-    ];
+    const markAllDoneTasks = () => {
+        tasks = [
+            ...tasks.map(task => task.done),
+        ]
+    };
 
 
 
