@@ -1,13 +1,20 @@
 {
     let tasks = [];
 
-    let hideDoneTask = false ;
+    let hideDoneTask = false;
 
     const hideDoneTasks = () => {
-        hideDoneTask =! hideDoneTask
+        hideDoneTask = !hideDoneTask
 
         render();
-    }
+    };
+
+    const markAllDoneTasks = () => [
+        tasks.map(task => task.done),
+    ];
+
+
+
 
 
 
@@ -33,13 +40,13 @@
     const toggleTaskDone = (index) => {
         tasks = [
             ...tasks.slice(0, index),
-        {...tasks[index], done: !tasks[index].done},
+            { ...tasks[index], done: !tasks[index].done },
             ...tasks.slice(index + 1),
 
         ];
 
 
-    
+
 
         render();
     };
