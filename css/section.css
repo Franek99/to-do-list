@@ -14,10 +14,16 @@
     justify-content: space-between;
     border-bottom: 1px solid rgb(226, 221, 221);
 }
+@media(max-width:767px){
+    .section__HeaderAndButtons {
+    direction:column; 
+    flex-wrap: wrap;}
+}
 
 .section__div {
     display: flex;
     justify-content: end;
+   
 }
 
 .section__button {
@@ -26,6 +32,7 @@
     color: teal;
     cursor: pointer;
 }
+
 
 .section__button:active {
     color: rgb(30, 232, 232);
