@@ -10,9 +10,11 @@
     };
 
     const markAllDoneTasks = () => {
-        tasks = [
-            ...tasks.map(task => task.done),
-        ]
+        tasks = tasks.map((task) => ({
+            ...task,
+            done: true
+        }));
+
         render();
     };
 
@@ -83,20 +85,39 @@
         }
 
         document.querySelector(".js-list").innerHTML = htmlString;
+        renderButtons()
+
     };
 
-    const renderButtons = (buttonedString) => {
-        let buttons = ""
-        if (buttonedString != "") {
-            buttons += `
-            <button>${hideDoneTask ? "Pokaż" : "Ukryj" } Zakończone </button> 
-            <button ${tasks.every(({ done }) => done) ? "disabled" : ""}> Ukończ Wszystkie </button>
-              `;
+    const renderButtons = () => {
+        const buttonsElement = document.querySelector(".js-div");
+
+        if (!tasks.length) {
+            buttonsElement.innerHTML = "";
+            return;
         };
-        document.querySelector(".js-div").innerHTML = buttons;
+
+        buttonsElement.innerHTML = `
+            <button type="submit" class="js-hideDoneTask">${hideDoneTask ? "Pokaż" : "Ukryj"} Zakończone </button> 
+            <button type="submit" class="js-markDoneTask" ${tasks.every(({ done }) => done) ? 'disabled' : ""}> Ukończ Wszystkie </button>
+              `
     };
-    
-    const bindEventsButtons = () => { };
+
+
+    const bindEventsButtons = () => {
+        const hideDoneTasksButton = document.querySelector(".js-hideDoneTask")
+        if (hideDoneTasksButton) {
+            hideDoneTasksButton.addEventListener('click', hideDoneTasks)
+        };
+
+
+        const markDoneTask = document.querySelector(".js-markDoneTask")
+        if (markDoneTask) {
+            markDoneTask.addEventListener('click', () => {
+                markAllDoneTasks()
+            });
+        };
+    };
 
     const render = () => {
 
@@ -104,7 +125,7 @@
         renderButtons();
         bindEventsButtons();
         bindEvents();
-    };
+    }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -116,7 +137,6 @@
         }
 
         addNewTask(newTaskContent);
-
         document.querySelector(".js-newTask").value = "";
     };
 
