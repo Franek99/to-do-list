@@ -13,12 +13,8 @@
         tasks = [
             ...tasks.map(task => task.done),
         ]
+        render();
     };
-
-
-
-
-
 
 
     const addNewTask = (newTaskContent) => {
@@ -44,12 +40,7 @@
             ...tasks.slice(0, index),
             { ...tasks[index], done: !tasks[index].done },
             ...tasks.slice(index + 1),
-
         ];
-
-
-
-
         render();
     };
 
@@ -94,7 +85,17 @@
         document.querySelector(".js-list").innerHTML = htmlString;
     };
 
-    const renderButtons = () => { };
+    const renderButtons = (buttonedString) => {
+        let buttons = ""
+        if (buttonedString != "") {
+            buttons += `
+            <button>${hideDoneTask ? "Pokaż" : "Ukryj" } Zakończone </button> 
+            <button ${tasks.every(({ done }) => done) ? "disabled" : ""}> Ukończ Wszystkie </button>
+              `;
+        };
+        document.querySelector(".js-div").innerHTML = buttons;
+    };
+    
     const bindEventsButtons = () => { };
 
     const render = () => {
