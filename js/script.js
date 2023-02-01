@@ -1,8 +1,16 @@
 {
     let tasks = [];
 
+    let hideDoneTask = false ;
 
-    
+    const hideDoneTasks = () => {
+        hideDoneTask =! hideDoneTask
+
+        render();
+    }
+
+
+
 
     const addNewTask = (newTaskContent) => {
         tasks = [
