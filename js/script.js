@@ -98,8 +98,8 @@
         };
 
         buttonsElement.innerHTML = `
-            <button type="submit" class="js-hideDoneTask">${hideDoneTask ? "Pokaż" : "Ukryj"} Zakończone </button> 
-            <button type="submit" class="js-markDoneTask" ${tasks.every(({ done }) => done) ? 'disabled' : ""}> Ukończ Wszystkie </button>
+            <button type="submit" class="section__button js-hideDoneTask">${hideDoneTask ? "Pokaż" : "Ukryj"} Zakończone </button> 
+            <button type="submit" class="section__button section__button--disabled js-markDoneTask" ${tasks.every(({ done }) => done) ? 'disabled' : ""}> Ukończ Wszystkie </button>
               `
     };
 
@@ -149,5 +149,5 @@
     };
 
     init();
-}
+};
 
