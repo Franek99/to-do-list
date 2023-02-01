@@ -2,6 +2,7 @@
     let tasks = [];
 
 
+    
 
     const addNewTask = (newTaskContent) => {
         tasks = [
@@ -14,17 +15,29 @@
 
     const removeTask = (index) => {
         tasks = [
-            ...tasks.splice(1,index),
+            ...tasks.slice(0, index),
+            ...tasks.slice(index + 1),
         ];
 
         render();
     };
 
     const toggleTaskDone = (index) => {
-        tasks = tasks.map(tasks => tasks[index].done = !tasks[index].done);
-        
+        tasks = [
+            ...tasks.slice(0, index),
+        {...tasks[index], done: !tasks[index].done},
+            ...tasks.slice(index + 1),
+
+        ];
+
+
+    
+
         render();
-    }
+    };
+
+
+
 
     const bindEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
