@@ -19,6 +19,7 @@
     background-color: teal;
     color: white;
     cursor: pointer;
+
 }
 
 .form__addButton--done:active {
@@ -27,4 +28,6 @@
 
 .form__addButton--done:hover {
     background-color: rgb(101, 226, 226);
+    transition: 1s;
+    transform: scale(1.2);
 }
